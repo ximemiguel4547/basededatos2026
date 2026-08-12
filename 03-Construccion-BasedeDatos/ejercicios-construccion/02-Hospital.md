@@ -1,3 +1,4 @@
+```SQL
 /* ============================================================================
    EJERCICIO 1 - HOSPITAL 
    ============================================================================ */
@@ -31,3 +32,7 @@ CREATE TABLE expediente (
         REFERENCES paciente (num_paciente)
 );
 GO
+```
+![Diagrama](../../img/construccion/02-Ejercicio_Hospital.png)
+
+

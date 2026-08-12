@@ -1,3 +1,4 @@
+```SQL
 /* ============================================================================
    EJERCICIO 6 - CREDENCIAL (Alumno, Credencial, Departamento, Profesor,
    Materia, Cursa, Dependiente, Proyecto, Participa)
@@ -135,3 +136,6 @@ CREATE TABLE Participa (
         REFERENCES Proyecto (CodProyecto)
 );
 GO
+
+```
+![Diagrama](../../img/construccion/06-ejercicioVersion2.png)

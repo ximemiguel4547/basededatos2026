@@ -1,3 +1,4 @@
+```SQL
 /* ============================================================================
    EJERCICIO 2 - Inscribir
    ============================================================================ */
@@ -46,3 +47,7 @@ CREATE TABLE inscribir (
         REFERENCES materia (clave_materia)
 );
 GO
+
+
+```
+![Diagrama](../../img/construccion/04-Inscribir.png)

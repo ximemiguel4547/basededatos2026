@@ -1,3 +1,4 @@
+```SQL
 /* ============================================================================
    EJERCICIO 5 - VERSION 1 (Company)
    ============================================================================ */
@@ -113,3 +114,7 @@ CREATE TABLE Dependent (
         REFERENCES Employee (Ssn)
 );
 GO
+
+
+```
+![DiagramaComercializadora](../../img/construccion/05-EjercioVERSION1.png)

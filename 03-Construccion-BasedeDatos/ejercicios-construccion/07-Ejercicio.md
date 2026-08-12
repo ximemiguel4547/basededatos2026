@@ -1,3 +1,4 @@
+```SQL
 /* ============================================================================
    EJERCICIO 4- PERO ES EL 4 POR QUE ME EH EQUIVOCADO EN EL ORDEN JIJIJI
    ============================================================================ */
@@ -72,3 +73,6 @@ CREATE TABLE detalle_pedido (
 	REFERENCES producto (num_prod)
 );
 GO
+
+```
+![Diagrama](../../img/construccion/07-ejersicio.png)
