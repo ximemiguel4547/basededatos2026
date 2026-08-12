@@ -1,3 +1,4 @@
+```SQL 
 /* ============================================================================
    EJERCICIO 8 - GESTION EMPRESA
    ============================================================================ */
@@ -223,3 +224,6 @@ CREATE TABLE participa (
 	REFERENCES proyecto (clave_proyecto)
 );
 GO
+
+```
+![Diagrama](../../img/construccion/09-EjercioGestioEmpresa.png)

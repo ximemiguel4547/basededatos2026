@@ -117,4 +117,4 @@ GO
 
 
 ```
-![DiagramaComercializadora](../../img/construccion/05-EjercioVERSION1.png)
+![Diagrama](../../img/construccion/05-EjercioVERSION1.png)

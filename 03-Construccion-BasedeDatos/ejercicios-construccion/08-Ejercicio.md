@@ -1,3 +1,4 @@
+```SQL 
 CREATE DATABASE gestion_empresa;
 GO
 USE gestion_empresa;
@@ -146,7 +147,7 @@ CREATE TABLE proyecto (
 GO
 
 /*======================================================
-   TABLA ASISTIR 
+   TABLAA ASISTIR 
 ======================================================*/
 CREATE TABLE asistir (
 	num_empl INT NOT NULL,
@@ -192,3 +193,5 @@ CREATE TABLE participa (
 	REFERENCES proyecto (clave_proyecto)
 );
 GO
+```
+![Diagrama](../../img/construccion/08-EjercicioControlEscolar.png)

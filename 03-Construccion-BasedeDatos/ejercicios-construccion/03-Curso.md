@@ -1,3 +1,4 @@
+```SQL
 /* ============================================================================
    EJERCICIO 2 - CURSO
    ============================================================================ */
@@ -41,8 +42,8 @@ CREATE TABLE especialidad (
         REFERENCES profesor (num_profesor)
 );
 GO
-![DiagramaComercializadora](../../img/construccion/02-Ejercicio_Hospital.png)
+
 
 ```
-![DiagramaComercializadora](../../img/construccion/03-Curso.png)
+![Diagrama](../../img/construccion/03-Curso.png)
 
