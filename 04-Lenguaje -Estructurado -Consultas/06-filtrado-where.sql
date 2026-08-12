@@ -357,3 +357,215 @@ FROM productos AS p
   -- TODO : Instrucción BETWEEN E IN,LIKE,COMPARACIONES CON NULL
 
 
+  -- OPERADO BETWEEN:
+  -- Permite comproibar si un valor se encuentra dentro de un rango inclusivo
+
+  --Sintaxxis
+  -- Where columna BETWEEN limite_inferior AND limite_superior;
+
+
+  -- Mostrar empleadoscon salario entre $15000 y $20000
+
+  SELECT
+  e.id_empleado,
+  e.nombre,
+  e.salario
+
+  FROM empleados AS e
+  WHERE salario BETWEEN 15000 AND 20000;
+
+    SELECT
+  e.id_empleado,
+  e.nombre,
+  e.salario
+
+  FROM empleados AS e
+  WHERE e.salario >=15000
+  AND e.salario<=20000;
+
+  --Seleccionar las ventas del primero del 2025 al 
+  -- 10 de  enero de 2025
+  SELECT 
+  v.id_venta,
+  v.fecha,
+  FORMAT(v.fecha,'MM') AS [Mes en Digito],
+  FORMAT(v.fecha,'MMMM')AS [Nombre Mes en Ingles],
+  FORMAT(v.fecha,'dd')AS [Día en Digito),
+  FORMAT(v.fecha,'dddd')AS[Nombre del Día En Ingles],
+  UPPER(FORMAT (v.fecha,'MMMM','es-ES')) AS [Nombre del Mes Español],
+  UPPER(FORMAT(v.fecha,'dddd','es-ES')) AS [Nombre del Día añol],
+  DATEPART(MONTH,v.fecha)AS [Mes del año],
+ v.id_cliente
+
+  FROM ventas as v
+  WHERE v.fecha BETWEEN '2025-01-01' AND '2025-01-10';
+
+  --sELECCIONAR LOS PRODUCTOS que no encuentre en lo srangos de los precios
+  -- de $100 a $400
+  
+  SELECT 
+	p.id_producto,
+	p.nombre,
+	p.precio
+  FROM productos AS p
+  WHERE precio NOT BETWEEN 100 AND 400;
+
+  -- Operador IN
+  -- Permite comprar una columna con una lista de valores
+  -- sintaxis : WHERE columna IN (valor_1,valor_2,valor_n);
+  -- equivalee a varias condiciones OR conectada
+
+  SELECT 
+	p.id_producto,
+	p.nombre,
+	p.precio,
+	p.id_categoria
+  FROM productos AS p
+  WHERE p.id_categoria=1
+  OR 
+  p.id_categoria=7
+  OR 
+  p.id_categoria=12 ;
+  SELECT 
+  p.id_producto,
+  p.nombre,
+  p.precio,
+  p.id_categoria
+  FROM productos AS p
+  WHERE p.id_categoria IN (1,7,12);
+
+  -- seleccionar los satos de los clientes 1,10,25,5,100
+
+  SELECT 
+	c.id_cliente,
+	c.nombre,
+	c.correo
+
+  FROM  clientes AS c
+  WHERE id_cliente IN (1,10,25,50,100);
+
+  -- Sleccionar los datos de los departamentos de Ventas ,TI o Dirección 
+  SELECT 
+  d.id_departamento AS numero,
+  d.nombre AS nombre_departamentos
+  FROM departamentos AS d
+  WHERE d.nombre IN('Ventas','TI','Dirección´');
+
+
+
+  -- Seleccionar todos los deprtamentos que no correspondan al departamento 1 o 2
+  -- NOT IN 
+ SELECT 
+d.id_departamento AS numero,
+d.nombre AS nombre_departamento
+
+FROM departamentos AS d
+WHERE d.id_departamento NOT IN (1 , 2);
+
+SELECT 
+d.id_departamento AS numero,
+d.nombre AS nombre_departamento
+
+FROM departamentos AS d
+WHERE 
+	NOT (d.id_departamento=1
+	OR
+	d.id_departamento=2);
+
+-- PRECAUCIÓN CON NOT IN Y NULL.
+-- Cuando una columna contiene NULL,una comparación con NOT IN  puede comportarse 
+-- de manera diferente a lo esperado
+
+-- Seleccionar todos los empleados que no tenga jefe
+SELECT
+
+e.id_empleado,
+e.nombre,
+e.salario,
+e.id_jefe
+FROM empleados AS e
+WHERE e.id_jefe  IS NOT  NULL ;
+
+SELECT
+
+e.id_empleado,
+e.nombre,
+e.salario,
+e.id_jefe
+FROM empleados AS e
+WHERE e.id_jefe  NOT IN (1,2,3)
+OR e.id_jefe IS NULL;
+
+SELECT 
+e.id_empleado,
+e.nombre,
+e.salario,
+e.id_jefe
+FROM empleados AS e
+WHERE NOT (e.id_jefe=1
+	OR e.id_jefe=2
+	OR e.id_jefe=3)
+	OR e.id_jefe IS NULL
+	;
+
+SELECT 
+	e.id_empleado,
+	e.nombre,
+	e.salario,
+	e.id_jefe
+FROM empleados AS e
+WHERE 
+	e.id_jefe=1
+	OR
+	 e.id_jefe IS NOT NULL
+	;
+
+SELECT 
+	e.id_empleado,
+	e.nombre,
+	e.salario,
+	e.id_jefe
+FROM empleados AS e
+WHERE 
+	NOT (e.id_jefe=1
+	OR
+	e.id_jefe IS NOT NULL)
+	;
+
+SELECT 
+	e.id_empleado,
+	e.nombre,
+	e.salario,
+	e.id_jefe
+FROM empleados AS e
+WHERE 
+	e.id_jefe is NOT NULL
+	OR
+	e.id_jefe =4
+
+	;
+
+	-- NOT fuera de el parentesis  IS NOT NULL DENTRO DE 
+
+	-- Cunaod comparo un valor como un nulo no da un resultado
+
+	-- Operador LIKE
+	-- Permite buscar patrones dentro de valores de texto
+
+	-- SINTAXIS 
+	-- WHERE columna LIKE 'patron' 
+	-- los patrones son :
+	-- comodin                 significado
+	-- %						cero,uno o varios caracteres
+	-- -						exactam,ente un caracter 
+	-- [abc]				   un caracter incluido en la lista
+	-- [a-f]					un caracter no incluido en el rango
+	-- [^abc]				 un cararcter  no incluido en la lista
+	-- seleccionar los datos de los productos donde el codigo comience con 
+	-- P0001
+
+	SELECT 
+	* 
+	FROM productos
+	WHERE codigo LIKE 'P001%'
+	;

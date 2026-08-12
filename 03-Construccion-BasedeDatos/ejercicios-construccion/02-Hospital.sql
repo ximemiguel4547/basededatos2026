@@ -1,16 +1,17 @@
 /* ============================================================================
    EJERCICIO 1 - HOSPITAL 
    ============================================================================ */
-
-CREATE DATABASE ejercicio1_hospital;
-GO
-USE ejercicio1_hospital;
-GO
+   CREATE DATABASE Ejercicio_Hospital;
+   GO
+   USE Ejercicio_Hospital;
+   GO
 
 CREATE TABLE paciente (
-    num_paciente     INT NOT NULL IDENTITY(1,1),
-    nombre           VARCHAR(30) NOT NULL,
-    fecha_nacimiento DATE NOT NULL,
+    num_paciente      INT NOT NULL IDENTITY(1,1),
+    nombre            VARCHAR(30) NOT NULL,
+    apellido1         VARCHAR(30) NOT NULL,
+    apellido2         VARCHAR(30) NULL,
+    fecha_nacimiento  DATE NOT NULL,
     CONSTRAINT pk_paciente
         PRIMARY KEY (num_paciente)
 );
