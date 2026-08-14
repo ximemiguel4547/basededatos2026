@@ -93,7 +93,7 @@ CREATE TABLE departamento (
 );
 GO
 
-/*======= Se agrego el constraint unique para el campo nombre =====*/
+/*======= Se agregoe el constraint unique para el campo nombre =====*/
 ALTER TABLE departamento
 ADD CONSTRAINT
 uq_departamento_nombre

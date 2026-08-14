@@ -113,5 +113,3 @@ CREATE TABLE Dependent (
         REFERENCES Employee (Ssn)
 );
 GO
-```
-![DiagramaComercializadora](../../img/construccion/05-Employee.png)
